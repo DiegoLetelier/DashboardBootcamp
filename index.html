@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/1661898865.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -12,31 +13,38 @@
     <title>Proyecto con Axios</title>
 </head>
 <body>
-    
+    <p class="fecha" id="fecha"></p>
+    <!-- Buscador -->
     <div class="container input-group mb-3 mt-5">
         <input data-v-68963a64 type="text" class="form-control" placeholder="Ciudad" id="buscar">
         <button class="btn btn-success" type="button" id="boton">Buscar</button>
         <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
     </div>
+
     <section>
-        <div class="container text-center">
-            <div class="row">
-            <div class="col border border-dark">
-                <span id="fecha">Fecha</span>
-                <h2 id="ciudad">Ciudad</h2>
-                <span>Temperatura Actual</span>
-                <h3 id="temperatura">Temperatura</h3>
-                <span>Temperatura Mínima</span>
-                <h3 id="tempmin">Temperatura</h3>
-                <span>Temperatura Máxima</span>
-                <h3 id="tempmax">Temperatura</h3>
-                <img id="icon" src="" alt="">
-                <span id="estado">Temperatura Máxima</span>
-            </div>
-            <div id="map" class="col border border-danger">
-                
-            </div>
+        <div class="contenedor">
+                        <div class="row">
+                                <div class="col">
+                                    <p class="ciudad" id="ciudad"></p>
+                                   
+                                </div>
+                                <div class="col">
+                                    <p class="temperatura" id="temperatura"></p>
+                                </div>
+                                <div class="col">
+                                    <img class="icon" id="icon" src="" alt="">
+                                    <p class="estado" id="estado"></p>
+                                </div>
+                         </div>
         </div>
+
+
+           
+<div class="container">
+    <div id="map" class="col border border-danger">
+</div>
+         
+
     </section>
 
     <section>
@@ -45,9 +53,6 @@
                 <div>
                     <canvas id="myChart"></canvas>
                 </div>
-            <div id="horas" class="col border border-danger">
-                          
-            </div>
         </div>
     </section>
 

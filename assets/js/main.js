@@ -11,6 +11,19 @@ let grados = []; //Inicia vacio para poder reasignar
 let horas = []; //Inicia vacio para poder reasignar
 
 
+function dondeEstoy(){
+
+    navigator.geolocation.getCurrentPosition((success) => {
+        let {latitude, longitude} = success.coords;
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        })
+
+    })
+}
+dondeEstoy()
 async function clima(){
     
     //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
@@ -89,11 +102,11 @@ function pintaDatos(response){
     let tempRedondeada = Math.trunc(response.main.temp)
     temperatura.textContent = `${tempRedondeada}°C`
 
-    let tempminima = Math.trunc(response.main.temp_min)
+/*     let tempminima = Math.trunc(response.main.temp_min)
     tempmin.textContent = `${tempminima}°C`
     
     let tempmaxima = Math.trunc(response.main.temp_max)
-    tempmax.textContent = `${tempmaxima}°C`
+    tempmax.textContent = `${tempmaxima}°C` */
 
     estado.textContent = `${response.weather[0].description}`
 
