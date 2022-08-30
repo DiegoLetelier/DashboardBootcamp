@@ -7,8 +7,8 @@ const tempmax = document.getElementById('tempmax');
 const estado = document.getElementById('estado');
 const icon = document.getElementById('icon');
 
-let grados = [];
-let horas = [];
+let grados = []; //Inicia vacio para poder reasignar
+let horas = []; //Inicia vacio para poder reasignar
 
 
 async function clima(){
