@@ -10,19 +10,21 @@ const icon = document.getElementById('icon');
 let grados = [];
 let horas = [];
 
+
 async function clima(){
     
-    let buscar = document.getElementById('buscar').value;
+    //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
+    let buscar = document.getElementById('buscar').value; 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${buscar}&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let response = await axios.get(url)
     response = response.data; 
     console.log(response);
-    let lat = response.coord.lat 
-    let lon = response.coord.lon
+    let lat = response.coord.lat //Capturo la latitud que se utilizara en la segunda consulta
+    let lon = response.coord.lon //Capturo la longitud que se utilizara en la segunda consulta
     
 
-    let map = L.map('map').setView([`${lat}`, `${lon}`], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    let map = L.map('map').setView([`${lat}`, `${lon}`], 13); //Crea una instancia de un objeto de mapa dado el ID DOM de un elemento <div>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { //Se utiliza para cargar y mostrar capas de mosaicos en el mapa.
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     
