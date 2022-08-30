@@ -26,19 +26,20 @@ async function clima(){
     let map = L.map('map').setView([`${lat}`, `${lon}`], 13); //Crea una instancia de un objeto de mapa dado el ID DOM de un elemento <div>
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { //Se utiliza para cargar y mostrar capas de mosaicos en el mapa.
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(map); //Añade la informacion recibida al mapa
     
-    L.marker([`${lat}`, `${lon}`]).addTo(map)
-        .bindPopup(`Temperatura actual: ${Math.trunc(response.main.temp)}°C </br>
-        Condicion actual: ${response.weather[0].description}`)
-        .openPopup();
+    L.marker([`${lat}`, `${lon}`]).addTo(map) //Se utiliza para mostrar iconos en los que se puede hacer clic o arrastrar en el mapa.
+        .bindPopup(`Temperatura actual: ${Math.trunc(response.main.temp)}°C </br> 
+        Condicion actual: ${response.weather[0].description}`) //popup que muestra la temperatura actual y el estado
+        .openPopup(); //Despliega el popup
 
-        //map.remove(); 
+
+    //Realizo la segunda consulta donde obtengo los datos que se utilizan en el gráfico
     let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let respuesta = await axios.get(url2)    
     respuesta = respuesta.data;
     console.log(respuesta);
-    let info = respuesta.list;
+    let info = respuesta.list; //Creo la variable info y la igualo a respuesta.list donde se encuentran los grados y las horas 
 
     let grados_api = info.map((grado) => Math.trunc(grado.main.temp)) //Obtengo temperatura    
     grados = grados_api //Igualo la variable grados a los valores obtenidos de la api
@@ -76,9 +77,7 @@ async function clima(){
 }
 
 function pintaDatos(response){
-    /* let {temp, temp_max, temp_min } = response.main 
-       console.log(temp);
-    */  
+
     //Hora Unix a Hora UTC
     let unixTimestamp = response.dt
     let date = new Date(unixTimestamp*1000);
