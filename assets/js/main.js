@@ -18,6 +18,7 @@ async function clima(){
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${buscar}&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let response = await axios.get(url)
     response = response.data; 
+
     console.log(response);
     let lat = response.coord.lat //Capturo la latitud que se utilizara en la segunda consulta
     let lon = response.coord.lon //Capturo la longitud que se utilizara en la segunda consulta
@@ -90,15 +91,15 @@ function pintaDatos(response){
     let tempRedondeada = Math.trunc(response.main.temp)
     temperatura.textContent = `${tempRedondeada}°C`
 
-    let tempminima = Math.trunc(response.main.temp_min)
+   /*  let tempminima = Math.trunc(response.main.temp_min)
     tempmin.textContent = `${tempminima}°C`
     
     let tempmaxima = Math.trunc(response.main.temp_max)
-    tempmax.textContent = `${tempmaxima}°C`
+    tempmax.textContent = `${tempmaxima}°C` */
 
     estado.textContent = `${response.weather[0].description}`
 
-    icon.src= `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`
+    icon.src= `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png`
 
     /* console.log(response.weather[0].description) */
 
