@@ -34,10 +34,42 @@ async function clima(){
     let respuesta = await axios.get(url2)    
     respuesta = respuesta.data;
     console.log(respuesta);
-    let info = respuesta.list;
-    pintaDatos(response)
-}
+    
 
+    let grados_api = info.map((grado) => Math.trunc(grado.main.temp)) //Obtengo temperatura    
+    grados = grados_api //Igualo la variable grados a los valores obtenidos de la api
+    
+    let horas_api = info.map((fech) => obtenerHora(fech.dt_txt)) //Obtengo Horas 
+    console.log("Fechas: ",horas_api );
+    horas = horas_api //Igualo la variable horas a los valores obtenidos de la api
+    console.log("Grados: ",grados );
+    console.log("Fechas: ",horas );
+    
+//Principio del Gráfico
+    const data = {
+        labels: horas,
+         datasets: [{
+                label: 'Temperatura próximas 5 Horas',
+                data: grados,
+                fill: false,
+                borderColor: 'rgb(255,0,0)',  //'rgb(75, 192, 192)'
+                tension: 0.1
+        }]
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+      }; 
+
+      const myChart = new Chart(        
+        document.getElementById('myChart'),
+        config,        
+      );    
+//Fin del gráfico 
+    
+    pintaDatos(response) //Pinto datos obtenidos de la ap
+}
 function pintaDatos(response){
     /* let {temp, temp_max, temp_min } = response.main 
        console.log(temp);
