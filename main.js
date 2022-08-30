@@ -19,6 +19,7 @@ async function clima(){
     console.log(response);
     let lat = response.coord.lat 
     let lon = response.coord.lon
+    
 
     let map = L.map('map').setView([`${lat}`, `${lon}`], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,12 +30,13 @@ async function clima(){
         .bindPopup(`Temperatura actual: ${Math.trunc(response.main.temp)}°C </br>
         Condicion actual: ${response.weather[0].description}`)
         .openPopup();
-    
+
+        //map.remove(); 
     let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let respuesta = await axios.get(url2)    
     respuesta = respuesta.data;
     console.log(respuesta);
-    
+    let info = respuesta.list;
 
     let grados_api = info.map((grado) => Math.trunc(grado.main.temp)) //Obtengo temperatura    
     grados = grados_api //Igualo la variable grados a los valores obtenidos de la api
@@ -70,6 +72,7 @@ async function clima(){
     
     pintaDatos(response) //Pinto datos obtenidos de la ap
 }
+
 function pintaDatos(response){
     /* let {temp, temp_max, temp_min } = response.main 
        console.log(temp);
@@ -98,5 +101,14 @@ function pintaDatos(response){
     /* console.log(response.weather[0].description) */
 
 }
- 
+
+function obtenerHora(fecha){ //Funcion que me formatea la hora 
+    let hora_corregida = fecha;
+    hora_corregida = hora_corregida.split(' ');
+    hora_corregida = hora_corregida[1];
+    hora_corregida = hora_corregida.split(':');
+    hora_corregida = `${hora_corregida[0]}:${hora_corregida[1]}`
+    return hora_corregida
+}
+
 boton.addEventListener('click', clima)
