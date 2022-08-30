@@ -55,6 +55,8 @@ getData()
 
 // geo ()
 
+document.querySelector("#btnlocal").addEventListener('click', geo)
+
 document.querySelector("#btncity").addEventListener('click', fromCity)
 
 async function fromCity () {
@@ -73,7 +75,7 @@ async function fromCity () {
 
 }
 
-// ponerle una funcion para identificar donde está
+// ponerle una funcion para identificar donde está desde las longitud y latitud
 
 function showDataLocal(data) {
   clima  = {
