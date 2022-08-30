@@ -30,7 +30,11 @@ async function clima(){
         Condicion actual: ${response.weather[0].description}`)
         .openPopup();
     
-        
+    let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
+    let respuesta = await axios.get(url2)    
+    respuesta = respuesta.data;
+    console.log(respuesta);
+    let info = respuesta.list;
     pintaDatos(response)
 }
 
