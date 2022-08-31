@@ -4,62 +4,61 @@
 }
  */
 
-
- #map {width: 100%; height: 580px; box-shadow: 5px 5px 5px #888; }
-
-
-
- #fecha{
-    text-align: center;
-    font-size: 1.5em;
-
- }
-
- #card-body{
-    text-align: center;
- }
-
- #icon{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    
- }
- #estado{
-    text-align: center;
-    font-size: 2em;
- }
-
- #ciudad{
-
-    text-align: center;
-    font-size: 3.5em;
- }
-#col{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
- #temperatura{
-
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin: 0;
-    text-align: center;
-
-    font-size: 5em;
- }
-
- .catalogo {
-    color:#fff;
-    text-align: center;
+#map {
+   width: 100%;
+   height: 580px;
+   box-shadow: 5px 5px 5px #888;
 }
 
-.lista-item a{
-    color:#fff
+#fecha {
+   text-align: center;
+   font-size: 1.5em;
 }
 
-.lista-item a:hover{
-    color: green;
+#card-body {
+   text-align: center;
+}
+
+#icon {
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+}
+
+#estado {
+   text-align: center;
+   font-size: 2em;
+}
+
+#ciudad {
+   text-align: center;
+   font-size: 3.5em;
+}
+
+#col {
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+}
+
+#temperatura {
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   margin: 0;
+   text-align: center;
+   font-size: 5em;
+}
+
+.catalogo {
+   color: #fff;
+   text-align: center;
+}
+
+.lista-item a {
+   color: #fff
+}
+
+.lista-item a:hover {
+   color: green;
 }
