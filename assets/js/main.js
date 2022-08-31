@@ -10,20 +10,6 @@ const icon = document.getElementById('icon');
 let grados = []; //Inicia vacio para poder reasignar
 let horas = []; //Inicia vacio para poder reasignar
 
-
-function dondeEstoy(){
-
-    navigator.geolocation.getCurrentPosition((success) => {
-        let {latitude, longitude} = success.coords;
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`)
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-        })
-
-    })
-}
-dondeEstoy()
 async function clima(){
     
     //Realizo primera consulta donde eobtengo los datos que mostrare en el dom

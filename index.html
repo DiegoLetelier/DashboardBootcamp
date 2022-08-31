@@ -19,7 +19,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/images/3104619.png" alt="" width="70">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -67,24 +69,21 @@
         <div class="contenedor">
             <div class="row">
                 <div class="col">
-                    <p class="ciudad text-center" id="ciudad"></p>
-
+                    <p class="ciudad text-center" id="ciudad"></p>                                
+                    <p class="temperatura text-center" id="temperatura"></p>                              
+                    <div class="col">
+                        <img class="icon text-center" id="icon" src="" alt="">
+                        <p class="estado text-center" id="estado"></p>
+                    </div> 
+              
                 </div>
-                <div class="col">
-                    <p class="temperatura text-center" id="temperatura"></p>
-                </div>
-                <div class="col">
-                    <img class="icon text-center" id="icon" src="" alt="">
-                    <p class="estado text-center" id="estado"></p>
-                </div>
-            </div>
         </div>
 
         <!-- Aquí se muestra el mapa -->
         <div class="container">
             <div id="map" class="col border border-danger">
             </div>
-
+        </div>
 
     </section>
 
@@ -163,10 +162,6 @@
                         <li class="lista-item">
                             <a href="" class="text-decoration-none">Ubicación</a>
                         </li>
-                        <li class="lista-item">
-                            <a href="" class="text-decoration-none">Partners</a>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -205,7 +200,7 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
 </body>
 
 </html>
