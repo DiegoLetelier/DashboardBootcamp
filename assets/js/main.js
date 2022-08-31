@@ -1,14 +1,19 @@
 const boton = document.getElementById('boton');
-const fecha = document.getElementById('fecha');
+import pintaDatos from './pintaDatos.js'
+import pintaGrafico from './grafico.js'
+
+/* const fecha = document.getElementById('fecha');
 const temperatura = document.getElementById('temperatura');
 const city = document.getElementById('ciudad');
 const tempmin = document.getElementById('tempmin');
 const tempmax = document.getElementById('tempmax');
 const estado = document.getElementById('estado');
-const icon = document.getElementById('icon');
+const icon = document.getElementById('icon'); */
 
-let grados = []; //Inicia vacio para poder reasignar
-let horas = []; //Inicia vacio para poder reasignar
+export let grados = []; //Inicia vacio para poder reasignar
+export let horas = []; //Inicia vacio para poder reasignar
+
+
 
 async function clima(){
     
@@ -48,9 +53,10 @@ async function clima(){
     horas = horas_api //Igualo la variable horas a los valores obtenidos de la api
     console.log("Grados: ",grados );
     console.log("Fechas: ",horas );
-    
+   
+    pintaGrafico();
 //Principio del Gráfico
-    const data = {
+/*     const data = {
         labels: horas,
          datasets: [{
                 label: 'Temperatura próximas 5 Horas',
@@ -69,38 +75,12 @@ async function clima(){
       const myChart = new Chart(        
         document.getElementById('myChart'),
         config,        
-      );    
+      );    */ 
 //Fin del gráfico 
     
     pintaDatos(response) //Pinto datos obtenidos de la ap
 }
 
-function pintaDatos(response){
-
-    //Hora Unix a Hora UTC
-    let unixTimestamp = response.dt
-    let date = new Date(unixTimestamp*1000);
-    fecha.textContent = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
-
-    //Se obtiene nombre de ciudad
-    city.textContent = `${response.name}`
-    //Obtencion temperatura
-    let tempRedondeada = Math.trunc(response.main.temp)
-    temperatura.textContent = `${tempRedondeada}°C`
-
-/*     let tempminima = Math.trunc(response.main.temp_min)
-    tempmin.textContent = `${tempminima}°C`
-    
-    let tempmaxima = Math.trunc(response.main.temp_max)
-    tempmax.textContent = `${tempmaxima}°C` */
-
-    estado.textContent = `${response.weather[0].description}`
-
-    icon.src= `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`
-
-    /* console.log(response.weather[0].description) */
-
-}
 
 function obtenerHora(fecha){ //Funcion que me formatea la hora 
     let hora_corregida = fecha;
