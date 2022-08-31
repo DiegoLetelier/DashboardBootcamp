@@ -50,3 +50,16 @@
 
     font-size: 5em;
  }
+
+ .catalogo {
+    color:#fff;
+    text-align: center;
+}
+
+.lista-item a{
+    color:#fff
+}
+
+.lista-item a:hover{
+    color: green;
+}
