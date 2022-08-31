@@ -1,52 +1,43 @@
-/* #map { 
-    width: 400px;
+body {
+    background-color: white;
+    color: black;
+  }
+  
+main {
+    height: 100vh;
+    border-top: #CFBB6D solid 1px;
+  }
+.main-row {
+    height: 100%;
+  }
+
+#buscar {
+    background-color: white; 
+    border: #333333 solid 1px;
+    color: black;
+  }
+
+.search-column {
+    border-right: #333333 solid 1px;
+  }
+
+  #map { 
+    width: 610px;
     height: 400px; 
+  
 }
- */
+.card {
+    background-color: white; 
+    border: #333333 solid 1px;
+    width: 100%;
+    padding: 5px;
+  }
 
+.report {
+    height: 33.3%;
+  }
 
- #map {width: 100%; height: 580px; box-shadow: 5px 5px 5px #888; }
+  #temperatura{
+    font-size: 3.5rem;
+  }
 
-
-
- #fecha{
-    text-align: center;
-    font-size: 1.5em;
-
- }
-
- #card-body{
-    text-align: center;
- }
-
- #icon{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    
- }
- #estado{
-    text-align: center;
-    font-size: 2em;
- }
-
- #ciudad{
-
-    text-align: center;
-    font-size: 3.5em;
- }
-#col{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
- #temperatura{
-
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin: 0;
-    text-align: center;
-
-    font-size: 5em;
- }

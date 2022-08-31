@@ -3,60 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/>
+     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Proyecto con Axios</title>
+    <title>Proyecto 3 Dashboard</title>
 </head>
 <body>
-    <p class="fecha" id="fecha"></p>
-    <!-- Buscador -->
-    <div class="container input-group mb-3 mt-5">
-        <input data-v-68963a64 type="text" class="form-control" placeholder="Ciudad" id="buscar">
-        <button class="btn btn-success" type="button" id="boton">Buscar</button>
-        <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
-    </div>
+    <header>
+        <ul class="nav justify-content-center p-4">
+          <h1 class="nav-item">
+           Dashboard Clima
+          </h1>
+        </ul>
+        <hr>
+      </header>
 
-    <section>
-        <div class="contenedor">
-                        <div class="row">
-                                <div class="col">
-                                    <p class="ciudad" id="ciudad"></p>
-                                   
-                                </div>
-                                <div class="col">
-                                    <p class="temperatura" id="temperatura"></p>
-                                </div>
-                                <div class="col">
-                                    <img class="icon" id="icon" src="" alt="">
-                                    <p class="estado" id="estado"></p>
-                                </div>
-                         </div>
-        </div>
+<!-- Main Container -->
 
+<main class="container-fluid">
+    <div class="main-row row">
+
+            <!-- Buscar ciudad -->
+                <div class="search-column col-md-2 p-2 d-flex flex-column justify-content-start">
+                    <form class="form-inline my-2 my-lg-0 m-2 row">
+                            <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar"  class="form-control col-9" placeholder="Search by City">
+                            <button class="btn btn-success" type="button" id="boton">Buscar</button>
+                            <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
+                    </form>
+        
+                </div>
+
+        <div class="main-weather p-2 col">
+            <div class="container-fluid row">
+                                <div class="col">
+                                    <h3 id="ciudad"></h3>
+                                    <div><span class="fecha" id="fecha"></span></div>
+                                        <div class="card col">
+                                            <div class="card-body row">
+                                                <div>
+                                                    <div><span class="temperatura" id="temperatura"></span></div>
+                                                    <span></span>
+                                                    <h5 id="tempmax"></h5>
+                                                    <span></span>
+                                                    <h5 id="tempmin"></h5>
+                                                    <span></span>
+                                                    <h5 id="humedad"></h5>
+                                                    <span></span>
+                                                    <h5 id="presion"></h5>
+                                                                                                       
+                                                </div>
+                                                <div >
+
+                                                    <img id="icon" src="" alt="">
+                                                    <span id="estado"></span>
+                                                </div>
+                                               
+                                                
+                                            
+                                            </div> 
+                                        </div>
+                                </div>
+
+                          <div class="card col">
+                            <div>
+                                <div id="map" class="col ">
+                                </div>
+                            </div>
+                            
+                            </div>
+
+                            <div class="card col">
+                                <div>
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            <div id="horas" class="col">
+                                          
+                            </div>
+                                
+                                </div>
 
            
-<div class="container">
-    <div id="map" class="col border border-danger">
-</div>
-         
-
-    </section>
-
-    <section>
-        <div class="container text-center">
-            <div class="row">
-                <div>
-                    <canvas id="myChart"></canvas>
-                </div>
-            <div id="horas" class="col border border-danger">
-                          
+                        
+                        
+                        
+               
             </div>
         </div>
-    </section>
+    <div>
+</main>
+    
+
+
 
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
