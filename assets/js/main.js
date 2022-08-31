@@ -12,7 +12,6 @@ const icon = document.getElementById('icon');
 let grados = [];
 let horas = [];
 
-
 async function clima(){
     
     //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
