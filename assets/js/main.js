@@ -35,7 +35,7 @@ async function clima(){
         .openPopup();
 
         //map.remove(); 
-    let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
+    let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=8&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let respuesta = await axios.get(url2)    
     respuesta = respuesta.data;
     console.log(respuesta);
@@ -54,11 +54,13 @@ async function clima(){
     const data = {
         labels: horas,
          datasets: [{
-                label: 'Temperatura próximas 5 Horas',
-                data: grados,
-                fill: false,
-                borderColor: 'rgb(255,0,0)',  //'rgb(75, 192, 192)'
-                tension: 0.1
+            label: 'Temperatura próximas 8 Horas',
+            data: grados,
+            fill: false,
+            backgroundColor:'rgba(255, 0, 0, 0.3)',
+            borderColor: 'rgb(255,0,0,1)',  //'rgb(75, 192, 192)'
+            tension: 0.4,
+            borderWidth: 1,
         }]
     };
     const config = {
