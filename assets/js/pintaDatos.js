@@ -12,8 +12,7 @@ export default function pintaDatos(response) {
     let date = new Date(unixTimestamp * 1000);
     fecha.textContent = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}` //Se muestra la hora formateada en el dom
 
-<<<<<<< HEAD
-=======
+
     let tempminima = response.main.temp_min
     tempmin.textContent = `Mín.: ${tempminima} °C`
     
@@ -26,7 +25,7 @@ export default function pintaDatos(response) {
     let presionatm = Math.trunc(response.main.pressure)
     presion.textContent = `Presión atm: ${presionatm} hPa`
 
->>>>>>> 2e05dad4257e0cfdce001043e0ac4842f4e77ded
+
     //Se obtiene nombre de ciudad
     city.textContent = `${response.name}`
     //Obtencion temperatura
@@ -37,8 +36,4 @@ export default function pintaDatos(response) {
 
     icon.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}.png` //Se muestra el icono relacionado al clima en este momento
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2e05dad4257e0cfdce001043e0ac4842f4e77ded
