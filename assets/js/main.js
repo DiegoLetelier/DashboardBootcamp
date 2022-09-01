@@ -8,6 +8,7 @@ export let horas = []; //Inicia vacio para poder reasignar
 export let lat;
 export let lon;
 export let response;
+let respuestaDias;
 
 async function clima() {
 
@@ -22,7 +23,7 @@ async function clima() {
 
 
     //Realizo la segunda consulta donde obtengo los datos que se utilizan en el gráfico
-    let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
+    let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=8&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     let respuesta = await axios.get(url2)
     respuesta = respuesta.data;
     
@@ -34,11 +35,26 @@ async function clima() {
     let horas_api = info.map((fech) => obtenerHora(fech.dt_txt)) //Obtengo Horas     
     horas = horas_api //Igualo la variable horas a los valores obtenidos de la api
 
+    let urlDias = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
+    respuestaDias = await axios.get(urlDias)
+    respuestaDias = respuestaDias.data
+    respuestaDias = respuestaDias.daily
+    console.log(respuestaDias);
+
+    let dias = respuestaDias.map((dia) => dia.dt)
+    console.log(dias);
+
+    let temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
+    console.log(temDiaria);
+
     pintaDatos(response) //Pinto datos obtenidos de la ap
     pintaMapa();
     pintaGrafico();
 
 }
+
+
+
 
 function obtenerHora(fecha) { //Funcion que me formatea la hora 
     let hora_corregida = fecha;

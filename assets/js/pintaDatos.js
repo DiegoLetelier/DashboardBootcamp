@@ -12,6 +12,18 @@ export default function pintaDatos(response) {
     let date = new Date(unixTimestamp * 1000);
     fecha.textContent = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}` //Se muestra la hora formateada en el dom
 
+    let tempminima = response.main.temp_min
+    tempmin.textContent = `Mín.: ${tempminima} °C`
+    
+    let tempmaxima = response.main.temp_max
+    tempmax.textContent = `Máx.: ${tempmaxima} °C`
+
+    let humedadporc = Math.trunc(response.main.humidity)
+    humedad.textContent = `Humedad: ${humedadporc} %`
+
+    let presionatm = Math.trunc(response.main.pressure)
+    presion.textContent = `Presión atm: ${presionatm} hPa`
+
     //Se obtiene nombre de ciudad
     city.textContent = `${response.name}`
     //Obtencion temperatura
