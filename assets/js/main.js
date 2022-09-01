@@ -1,3 +1,4 @@
+//Para subir
 import pintaDatos from './pintaDatos.js'
 import pintaMapa from './mapa.js';
 import pintaGrafico from './grafico.js'
