@@ -9,6 +9,8 @@ export let lat;
 export let lon;
 export let response;
 let respuestaDias;
+let dias = [];
+let temDiaria = [];
 
 async function clima() {
 
@@ -41,20 +43,18 @@ async function clima() {
     respuestaDias = respuestaDias.daily
     console.log(respuestaDias);
 
-    let dias = respuestaDias.map((dia) => dia.dt)
+    dias = respuestaDias.map((dia) => dia.dt)
     console.log(dias);
 
-    let temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
+    temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
     console.log(temDiaria);
-
+    
     pintaDatos(response) //Pinto datos obtenidos de la ap
     pintaMapa();
     pintaGrafico();
+    nextDays();
 
 }
-
-
-
 
 function obtenerHora(fecha) { //Funcion que me formatea la hora 
     let hora_corregida = fecha;
@@ -64,5 +64,61 @@ function obtenerHora(fecha) { //Funcion que me formatea la hora
     hora_corregida = `${hora_corregida[0]}:${hora_corregida[1]}`
     return hora_corregida
 }
+
+
+function nextDays(){
+        let cards = document.getElementById('cards');
+        let html = '';
+
+        for(let i = 0; i < respuestaDias.length - 1; i++){
+            let dayService = new Date(respuestaDias[i].dt * 1000);
+
+            let day = dayService.getDate();
+            let month = 
+                dayService.getMonth() == 0 ? "Enero" : 
+                dayService.getMonth() == 1 ? "Febrero" : 
+                dayService.getMonth() == 2 ? "Marzo" :
+                dayService.getMonth() == 3 ? "Abril" :
+                dayService.getMonth() == 4 ? "Mayo" :
+                dayService.getMonth() == 5 ? "Junio" :
+                dayService.getMonth() == 6 ? "Julio" :
+                dayService.getMonth() == 7 ? "Agosto" :
+                dayService.getMonth() == 8 ? "Septiembre" :
+                dayService.getMonth() == 9 ? "Octubre" :
+                dayService.getMonth() == 10 ? "Noviembre" :
+                dayService.getMonth() == 11 ? "Diciembre" : "";
+            let year = dayService.getFullYear();
+
+            let dayOfWeek = 
+                dayService.getDay() == 0 ? "Domingo" : 
+                dayService.getDay() == 1 ? "Lunes" : 
+                dayService.getDay() == 2 ? "Martes" :
+                dayService.getDay() == 3 ? "Miércoles" :
+                dayService.getDay() == 4 ? "Jueves" :
+                dayService.getDay() == 5 ? "Viernes" :
+                dayService.getDay() == 6 ? "Sábado" : "";
+            
+            /* let date = day + '/' + month + '/' + year; */
+            
+            html = html + `
+            <div class="card card-1">
+                <div class="card__icon"><i class="fas fa-bolt"></i></div>
+                <p class="card__exit"><i class="fas fa-times"></i></p>
+                <h2 class="card__link">${ dayOfWeek } ${ day } de ${ month }</h2>
+                <h2 class="card__title">${ Math.round(respuestaDias[i].temp.day) } °C</h2>
+                <p class="card__apply">
+                    <a class="card__link" href="#">${ Math.round(respuestaDias[i].temp.min) } °C - ${ Math.round(respuestaDias[i].temp.max) } °C</a>
+                </p>
+                <img src="http://openweathermap.org/img/wn/${respuestaDias[i].weather[0].icon }@2x.png" alt="">
+            </div>
+            `;
+        }
+        cards.innerHTML = html;
+        console.log(respuestaDias);
+
+
+}
+
+
 
 boton.addEventListener('click', clima)
