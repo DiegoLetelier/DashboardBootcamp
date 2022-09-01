@@ -31,42 +31,42 @@
     <div class="main-row row">
 
             <!-- Buscar ciudad -->
-                <div class="search-column col-md-2 p-2 d-flex flex-column justify-content-start">
-                    <form class="form-inline my-2 my-lg-0 m-2 row">
-                            <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar"  class="form-control col-9" placeholder="Search by City">
+                <div class="search-column col-md-2 d-flex flex-column">
+                    <form class="form-inline m-2 row">
+                            <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar"  class="form-control col" placeholder="Search by City">
                             <button class="btn btn-success" type="button" id="boton">Buscar</button>
                             <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
                     </form>
                 </div>
 
-        <div class="main-weather p-2 col">
+              
+        <div class="p-2 col">
             <div class="container-fluid row">
                                 <div class="col">
-                                    <h3 id="ciudad"></h3>
-                                    <div><span class="fecha" id="fecha"></span></div>
-                                        <div class="card col">
+                                    <p class="ciudad"id="ciudad"></p>
+                                            <div class="card col">
                                             <div class="card-body row">
                                                 <div>
                                                     <div><span class="temperatura" id="temperatura"></span></div>
                                                     <span></span>
-                                                    <h5 id="tempmax"></h5>
+                                                    <p Class="datos" id="tempmax"></p>
                                                     <span></span>
-                                                    <h5 id="tempmin"></h5>
+                                                    <p Class="datos" id="tempmin"></p>
                                                     <span></span>
-                                                    <h5 id="humedad"></h5>
+                                                    <p Class="datos" id="humedad"></p>
                                                     <span></span>
-                                                    <h5 id="presion"></h5>                                                   
+                                                    <p Class="datos" id="presion"></p>                                                   
                                                 </div>
                                                 <div >
-                                                    <img id="icon" src="" alt="">
-                                                    <span id="estado"></span>
+                                                    <img class="icon" id="icon" src="" alt="">
+                                                    <span class="estado" id="estado">    </span>
                                                 </div>
                                             </div> 
                                         </div>
                                 </div>
                             <div class="card col">
                             <div>
-                                <div id="map" class="col ">
+                                <div id="map" class="col p-0">
                                 </div>
                             </div>
                             
@@ -74,16 +74,102 @@
 
                             <div class="card col">
                                 <div>
+                                    <div><span class="fecha" id="fecha"></span></div>
                                     <canvas id="myChart"></canvas>
                                 </div>
                             <div id="horas" class="col">     
                             </div>           
                 </div>
+        </div>
+
+            
+
+            <div class="p-3">
+                     <div class="card-deck">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Lunes</h5>
+                             </div>
+                          <div class="card-body">
+                            
+                            <h2 class="card-title">30.5 ºC</h2>
+                            <p class="card-text">Máx.: 12 °C
+                              </p>
+                                <p class="card-text">  Mín.: 9 °C</p>
+                                <p class="card-text">Humedad: 76 %</p>
+                                <p class="card-text">Presión atm: 1020 hPa</p>
+                          </div>                          
+                        </div>
+                            <div class="card">
+                                <div class="card-header">
+                            <h5>Martes</h5>
+                          </div>
+                          <div class="card-body">
+                            <h2 class="card-title">28.5 ºC</h2>
+                            <p class="card-text">Máx.: 12 °C
+                              </p>
+                                <p class="card-text">  Mín.: 9 °C</p>
+                                <p class="card-text">Humedad: 76 %</p>
+                                <p class="card-text">Presión atm: 1020 hPa</p>
+                          </div>
+                         
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Miércoles</h5>
+                              </div>
+                          <div class="card-body">
+                            <h2 class="card-title">33.0 ºC</h2>
+                            <p class="card-text">Máx.: 12 °C
+                              </p>
+                                <p class="card-text">  Mín.: 9 °C</p>
+                                <p class="card-text">Humedad: 76 %</p>
+                                <p class="card-text">Presión atm: 1020 hPa</p>
+                          </div>
+                          
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Jueves</h5>
+                              </div>
+                            <div class="card-body">
+                                <h2 class="card-title">31.2 ºC</h2>
+                                <p class="card-text">Máx.: 12 °C
+                                  </p>
+                                    <p class="card-text">  Mín.: 9 °C</p>
+                                    <p class="card-text">Humedad: 76 %</p>
+                                    <p class="card-text">Presión atm: 1020 hPa</p>
+                            </div>
+                         </div>
+
+                          <div class="card">
+                            <div class="card-header">
+                                <h5>Viernes</h5>
+                              </div>
+                            <div class="card-body">
+                                <h2 class="card-title">32.5 ºC</h2>
+                                <p class="card-text">Máx.: 12 °C
+                                  </p>
+                                    <p class="card-text">  Mín.: 9 °C</p>
+                                    <p class="card-text">Humedad: 76 %</p>
+                                    <p class="card-text">Presión atm: 1020 hPa</p>
+                            </div>
+                            
+                          </div>
+                      </div>
+                </div>
             </div>
+        <div>
         </div>
     <div>
 </main>
-    
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"

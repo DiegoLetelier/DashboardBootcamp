@@ -91,10 +91,10 @@ function pintaDatos(response){
     let tempRedondeada = response.main.temp
     temperatura.textContent = `${tempRedondeada}°C`
 
-    let tempminima = Math.trunc(response.main.temp_min)
+    let tempminima = response.main.temp_min
     tempmin.textContent = `Mín.: ${tempminima} °C`
     
-    let tempmaxima = Math.trunc(response.main.temp_max)
+    let tempmaxima = response.main.temp_max
     tempmax.textContent = `Máx.: ${tempmaxima} °C`
 
     let humedadporc = Math.trunc(response.main.humidity)
