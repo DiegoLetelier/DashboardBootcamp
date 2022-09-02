@@ -7,7 +7,7 @@ export default function pintaGrafico() {
       label: 'Temperatura próximas 8 Horas',
             data: grados,
             fill: true,
-            backgroundColor:'rgba(255, 0, 0, 0.3)',
+            backgroundColor:'rgba(255, 0, 0, 0.5)',
             borderColor: 'rgb(255,0,0,1)',  //'rgb(75, 192, 192)'
             tension: 0.4,
             borderWidth: 1,

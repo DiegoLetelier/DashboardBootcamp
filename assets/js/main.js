@@ -14,6 +14,7 @@ let dias = [];
 let temDiaria = [];
 
 async function clima() {
+   
 
     //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
     let buscar = document.getElementById('buscar').value;
@@ -50,6 +51,10 @@ async function clima() {
     temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
     console.log(temDiaria);
     
+
+
+
+
     pintaDatos(response) //Pinto datos obtenidos de la ap
     pintaMapa();
     pintaGrafico();
@@ -102,15 +107,19 @@ function nextDays(){
             /* let date = day + '/' + month + '/' + year; */
             
             html = html + `
-            <div class="card d-flex mt-5 gap-5">
+            <div class="card mt-2 ms-5">
             <div class="card-header">
             <h5 class="card-text">${ dayOfWeek } ${ day } de ${ month }</h5>
             </div>
             <div class="card-body">
-            <h2 class="card__title">${ Math.round(respuestaDias[i].temp.day) } °C</h2>
-            <p class="card-text" >Máx.: ${ Math.round(respuestaDias[i].temp.max) } °C</p> <br>
-            <p class="card-text" >Mín.: ${ Math.round(respuestaDias[i].temp.min) }  °C</p>
+            <h2 class="card-text">${ Math.round(respuestaDias[i].temp.day) } °C</h2>
+            
+            <p class="card-text" >Máx.: ${ Math.round(respuestaDias[i].temp.max) }°C </p>
+            <div class="d-flex">
+            <p class="card-text" >Mín.: ${ Math.round(respuestaDias[i].temp.min) }°C</p>
+            
             <img src="http://openweathermap.org/img/wn/${respuestaDias[i].weather[0].icon }@2x.png" alt="">
+            </div>
             </div>
             </div>
             </div>          
