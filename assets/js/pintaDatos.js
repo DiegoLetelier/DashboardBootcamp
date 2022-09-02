@@ -32,6 +32,6 @@ export default function pintaDatos(response) {
 
     estado.textContent = `${response.weather[0].description}` //Se muestra en el dom el estado del clima en este momento
 
-    icon.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}.png` //Se muestra el icono relacionado al clima en este momento
+    icon.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png` //Se muestra el icono relacionado al clima en este momento
 
 }

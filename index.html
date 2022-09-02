@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/877d98c366.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/1661898865.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -12,7 +13,7 @@
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Proyecto con Axios</title>
+    <title>Proyecto3 Dashboard</title>
 </head>
 
 <body>
@@ -20,107 +21,72 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./assets/images/3104619.png" alt="" width="70">
+                    <img src="./assets/images/3104619.png" alt="" width="75">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Caracteristicas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Precios</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Container -->
-
-    <main class="container-fluid">
-        <div class="main-row row">
-            <!-- Buscar ciudad -->
-            <div class="search-column col-md-2 d-flex flex-column">
-                <form class="form-inline m-2 row">
-                    <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar" class="form-control col"
-                        placeholder="Search by City">
+              <h1 style="color: white; font-display: center;" > Clima Dashborad</h1>
+        
+                </div> 
+                <div class="container p-3" >
+                    <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar" class="form-control"
+                    placeholder="Search by City">
+                    
                     <button class="btn btn-success" type="button" id="boton">Buscar</button>
                     <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
-                </form>
+                </div>
+        </nav>
+    </header>
+ 
+    <!-- Main Container -->
+
+    
+        <div class="card-group mt-5 text-center">
+            <div class="card text-center">
+               <div class="card-body mt-5">
+                    <p class="ciudad" id="ciudad"></p>
+                    <div><span class="temperatura" id="temperatura"></span></div>
+                    <span></span>
+                    <p Class="datos" id="tempmax"></p>
+                    <span></span>
+                    <p Class="datos" id="tempmin"></p>
+                    <span></span>
+                    <p Class="datos" id="humedad"></p>
+                    <span></span>
+                    <p Class="datos" id="presion"></p>
+                    <div>
+                        <img class="icon" id="icon" src="" alt="">
+                        <span class="estado" id="estado"> </span>
+                    </div>
+              </div>
             </div>
 
-            
-
-            <div class="p-2 col">
-                <div class="container-fluid row">
-                    <div class="col">
-                        <div class="card col">
-                            <div class="card-body row">
-                                <div>
-                                    <p class="ciudad" id="ciudad"></p>
-                                    <div><span class="temperatura" id="temperatura"></span></div>
-                                    <span></span>
-                                    <p Class="datos" id="tempmax"></p>
-                                    <span></span>
-                                    <p Class="datos" id="tempmin"></p>
-                                    <span></span>
-                                    <p Class="datos" id="humedad"></p>
-                                    <span></span>
-                                    <p Class="datos" id="presion"></p>
-                                </div>
-                                    <div>
-                                        <img class="icon" id="icon" src="" alt="">
-                                        <span class="estado" id="estado"> </span>
-                                    </div>
-                            </div>
-                        </div>
+            <div class="card">             
+                <div class="card-body">
+                    <div id="map" class="col p-0"></div>
                 </div>
-                
-                        <!-- mapa -->
-                        <div class="card col">
-                            <div>
-                                <div id="map" class="col p-0">
-                                </div>
-                            </div>
-                        </div>
+            </div>
 
-                        <!-- Gráfico -->
-                        <div class="card col">
-                            <div>
-                                <div><span class="fecha" id="fecha"></span></div>
+            <div class="card">              
+              <div class="card-body text-center">
+                    <div><span class="fecha" id="fecha"></span></div>
                                 <canvas id="myChart"></canvas>
                             </div>
                             <div id="horas" class="col">
                             </div>
-                        </div>
-                             
-                    
-        </div>    <!-- <div class="p-3"> -->
-        
-<!--             <div class="main-container">
-                <div class="heading">
+                    </div>
+              </div>
+            </div>
 
-                </div> -->
-                <div id="cards" class="cards d-flex mt-5 gap-3">
+    
+        <div id="cards" class="cards d-flex mt-5 gap-3 p-5 row">
+        </div>
+      
 
-                </div>
-            </div>   
-
-    </main>
-
+   
+       
 
 
     <!-- Footer -->
-    <footer class="bg-dark text-center text-white">
+    <footer class="bg-dark text-center text-white mt-5">
         <div class="container p-4">
             <section class="mb-4">
                 <a class="btn btn-outline-light btn-floating m-1" href="" role="button">
@@ -150,7 +116,7 @@
             </section>
         </div>
 
-        <section class="container-fluid">
+        <section class="container-fluid mt-5">
             <div class="row">
 
                 <div class="col-4">
