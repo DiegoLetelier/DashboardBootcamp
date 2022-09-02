@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/877d98c366.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/1661898865.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -12,7 +13,7 @@
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Proyecto con Axios </title>
+    <title>Proyecto3 Dashboard</title>
 </head>
 
 <body>
@@ -20,233 +21,68 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./assets/images/3104619.png" alt="" width="70">
+                    <img src="./assets/images/3104619.png" alt="" width="75">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Caracteristicas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Precios</a>
-                        </li>
-                    </ul>
-<<<<<<< HEAD
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <p class="fecha" id="fecha"></p>
-    <!-- Buscador -->
-    <div class="container input-group mb-3 mt-5">
-        <input data-v-68963a64 type="text" class="form-control" placeholder="Ciudad" id="buscar">
-        <button class="btn btn-success" type="button" id="boton">Buscar</button>
-        <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
-    </div>
-
-
-    <!-- Datos desplegados -->
-    <section>
-        <div class="contenedor">
-            <div class="row">
-                <div class="col">
-                    <p class="ciudad text-center" id="ciudad"></p>
-                    <p class="temperatura text-center" id="temperatura"></p>
-
-                </div>
-            </div>
-
-            <div class="col">
-                <p class="estado text-center" id="estado"></p>
-            </div>
-            <div class="col">
-                <img class="icon text-center" id="icon" src="" alt="">
-            </div>
-        </div>
-    </section>
-
-    <!-- Aquí se muestra el mapa -->
-    <section>
-        <div class="container">
-            <div id="map" class="col border border-danger">
-            </div>
-        </div>
-    </section>
-
-    <!-- Aquí se muestra el gráfico -->
-    <section>
-        <div class="container text-center">
-            <div class="row">
-                <div>
-                    <canvas id="myChart"></canvas>
-                </div>
-            </div>
-    </section>
-    <!--Aqui se muestran las tarjetas con pronóstico-->
-    <section>
-        <div class="container text-center">
-            <div class="row">
-                <div>
-                    <canvas id="cards"></canvas>
-                </div>
-            </div>
-    </section>
-    <!-- Footer -->
-    <footer class="bg-dark text-center text-white">
-        <div class="container p-4">
-            <section class="mb-4">
-                <a class="btn btn-outline-light btn-floating m-1" href="" role="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-facebook" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                    </svg>
-                </a>
-
-=======
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Container -->
-
-    <main class="container-fluid">
-        <div class="main-row row">
-            <!-- Buscar ciudad -->
-            <div class="search-column col-md-2 d-flex flex-column">
-                <form class="form-inline m-2 row">
-                    <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar" class="form-control col"
-                        placeholder="Search by City">
+              <h1 style="color: white; font-display: center;" > Clima Dashborad</h1>
+        
+                </div> 
+                <div class="container p-3" >
+                    <input data-v-68963a64 type="search" placeholder="Ciudad" id="buscar" class="form-control"
+                    placeholder="Search by City">
+                    
                     <button class="btn btn-success" type="button" id="boton">Buscar</button>
                     <input class="btn btn-warning" type="button" value="Actualizar" onclick="location.reload()">
-                </form>
+                </div>
+        </nav>
+    </header>
+ 
+    <!-- Main Container -->
+
+    <div>
+        <div class="card-group">
+            <div class="card">
+               <div class="card-body">
+                <p class="ciudad" id="ciudad"></p>
+                <div><span class="temperatura" id="temperatura"></span></div>
+                <span></span>
+                <p Class="datos" id="tempmax"></p>
+                <span></span>
+                <p Class="datos" id="tempmin"></p>
+                <span></span>
+                <p Class="datos" id="humedad"></p>
+                <span></span>
+                <p Class="datos" id="presion"></p>
+                <div>
+                    <img class="icon" id="icon" src="" alt="">
+                    <span class="estado" id="estado"> </span>
+                </div>
+              </div>
             </div>
-
-            
-
-            <div class="p-2 col">
-                <div class="container-fluid row">
-                    <div class="col">
-                        <div class="card col">
-                            <div class="card-body row">
-                                <div>
-                                    <p class="ciudad" id="ciudad"></p>
-                                    <div><span class="temperatura" id="temperatura"></span></div>
-                                    <span></span>
-                                    <p Class="datos" id="tempmax"></p>
-                                    <span></span>
-                                    <p Class="datos" id="tempmin"></p>
-                                    <span></span>
-                                    <p Class="datos" id="humedad"></p>
-                                    <span></span>
-                                    <p Class="datos" id="presion"></p>
-                                </div>
-                                    <div>
-                                        <img class="icon" id="icon" src="" alt="">
-                                        <span class="estado" id="estado"> </span>
-                                    </div>
-                            </div>
+            <div class="card">
+             
+              <div class="card-body">
+                <div id="map" class="col p-0"></div>
+              </div>
+            </div>
+            <div class="card">
+              
+              <div class="card-body">
+                <div><span class="fecha" id="fecha"></span></div>
+                            <canvas id="myChart"></canvas>
                         </div>
-                </div>
-                
-                        <!-- mapa -->
-                        <div class="card col">
-                            <div>
-                                <div id="map" class="col p-0">
-                                </div>
-                            </div>
+                        <div id="horas" class="col">
                         </div>
+              </div>
+            </div>
+          </div>
 
-                        <!-- Gráfico -->
-                        <div class="card col">
-                            <div>
-                                <div><span class="fecha" id="fecha"></span></div>
-                                <canvas id="myChart"></canvas>
-                            </div>
-                            <div id="horas" class="col">
-                            </div>
-                        </div>
-                      
-        
-                    <!-- tarjetas -->
-                    <div class="card-group gap-2 mt-3">
-                        <div class="card text-bg-light mb-3">
-                            <div class="card-header">Lunes</div>
-                            <div class="card-body">
-                                <h2 class="card-title">30.5 ºC</h2>
-                                <p class="card-text">Máx.: 12 °C</p>
-                                <p class="card-text">  Mín.: 9 °C</p>
-                                <p class="card-text">Humedad: 76 %</p>
-                                <p class="card-text">Presión atm: 1020 hPa</p>
-                            </div>
-                        </div>
-                    
-                        <div class="card text-bg-light mb-3">
-                            <div class="card-header">Martes</div>
-                            <div class="card-body">
-                                <h2 class="card-title">30.5 ºC</h2>
-                                <p class="card-text">Máx.: 12 °C</p>
-                                <p class="card-text">  Mín.: 9 °C</p>
-                                <p class="card-text">Humedad: 76 %</p>
-                                <p class="card-text">Presión atm: 1020 hPa</p>
-                            </div>
-                        </div>
-                        <div class=card text-bg-light mb-3">
-                            <div class="card-header">Miércoles</div>
-                            <div class="card-body">
-                                <h2 class="card-title">30.5 ºC</h2>
-                                <p class="card-text">Máx.: 12 °C</p>
-                                <p class="card-text">  Mín.: 9 °C</p>
-                                <p class="card-text">Humedad: 76 %</p>
-                                <p class="card-text">Presión atm: 1020 hPa</p>
-                            </div>
-                        </div>                       
-                    
-                        <div class="card text-bg-light mb-3">
-                            <div class="card-header">Jueves</div>
-                            <div class="card-body">
-                                <h2 class="card-title">30.5 ºC</h2>
-                                <p class="card-text">Máx.: 12 °C</p>
-                                <p class="card-text">  Mín.: 9 °C</p>
-                                <p class="card-text">Humedad: 76 %</p>
-                                <p class="card-text">Presión atm: 1020 hPa</p>
-                            </div>
-                        </div>
+    </div>
+        <div id="cards" class="cards d-flex mt-5 gap-3 p-5 row">
+        </div>
+        </div>
 
-                        <div class="card text-bg-light mb-3">
-                            <div class="card-header">Viernes</div>
-                            <div class="card-body">
-                                <h2 class="card-title">30.5 ºC</h2>
-                                <p class="card-text">Máx.: 12 °C</p>
-                                <p class="card-text">  Mín.: 9 °C</p>
-                                <p class="card-text">Humedad: 76 %</p>
-                                <p class="card-text">Presión atm: 1020 hPa</p>
-                            </div>
-                        </div>
-
-                    </div>
-        </div>    <!-- <div class="p-3"> -->
-        
-            <div class="main-container">
-                <div class="heading">
-                <h1 class="heading__title">A Simple Weather Example</h1>
-                <p class="heading__credits"><a class="heading__link" target="_blank" href="#">Developed by Alejandro & Designed by Simon Lurwer</a></p>
-                </div>
-                <div id="cards" class="cards"></div>
-            </div>   
-
-    </main>
-
+   
+       
 
 
     <!-- Footer -->
@@ -261,7 +97,6 @@
                     </svg>
                 </a>
 
->>>>>>> 2e05dad4257e0cfdce001043e0ac4842f4e77ded
                 <a class="btn btn-outline-light btn-floating m-1" href="" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-twitter" viewBox="0 0 16 16">
@@ -336,10 +171,7 @@
         </div>
     </footer>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 2e05dad4257e0cfdce001043e0ac4842f4e77ded
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
