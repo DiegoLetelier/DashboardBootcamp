@@ -107,9 +107,10 @@ function nextDays(){
             /* let date = day + '/' + month + '/' + year; */
             
             html = html + `
-            <div class="card mt-2 ms-5">
-            <div class="card-header">
-            <h5 class="card-text">${ dayOfWeek } ${ day } de ${ month }</h5>
+            <div class="container">
+            <div class="card mt-2" style="background-color:#43C3FF;">
+            <div class="card-header >
+            <h5 class="card-text .bg-secondary.bg-gradientLos" >${ dayOfWeek } ${ day } de ${ month }</h5>
             </div>
             <div class="card-body">
             <h2 class="card-text">${ Math.round(respuestaDias[i].temp.day) } °C</h2>
@@ -122,7 +123,8 @@ function nextDays(){
             </div>
             </div>
             </div>
-            </div>          
+            </div>   
+            </div>        
             `;
         }
         cards.innerHTML = html;
