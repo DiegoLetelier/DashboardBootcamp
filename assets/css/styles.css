@@ -1,71 +1,27 @@
 body {
-    background-color: white;
-    color: black;
-  }
-  
-main {
-    height: 100vh;
-    border-top: #CFBB6D solid 1px;
-  }
-.main-row {
-    height: 100%;
-  }
-
-#ciudad{
-    font-size: 3em;
+  background-color: white;
+  color: black;
+  background: #212529;
 }
 
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 90px;
+  display: block;
+  width: 800px;
+}
 
-#buscar {
-    background-color: white; 
-    border: #333333 solid 1px;
-    color: black;
-  }
-
-.search-column {
-    border-right: #333333 solid 1px;
-  }
-
-  #map { 
-    width: 100%;
-    height: 560px;
-    border-radius: 10px;
-     } 
-
-.card {
-    background-color: white; 
-    border: #333333 solid 1px;
-    width: 100%;
-    padding: 4px;
-  }
-
-.report {
-    height: 33.3%;
-  }
-
-  #temperatura{
-    font-size: 3rem;
-  }
-  #estado{
-    text-align: center;
-    font-size: 2em;
-  }
-
-  #datos{
-    margin: 0;
-    padding: 0;
-  }
-  #fecha{
-    font-size: 1.2em;
-  }
-  
-  canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 90px;
-    display: block;
-    width: 800px;
-  }
+#map { 
+  width: 100%;
+  height: 560px;
+  border-radius: 10px;
+} 
 
 
-  
+
+
+
+
+ 
+

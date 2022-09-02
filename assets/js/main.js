@@ -1,119 +1,63 @@
+//Para subir
+import pintaDatos from './pintaDatos.js'
+import pintaMapa from './mapa.js';
+import pintaGrafico from './grafico.js'
 const boton = document.getElementById('boton');
-const fecha = document.getElementById('fecha');
-const temperatura = document.getElementById('temperatura');
-const city = document.getElementById('ciudad');
-const tempmin = document.getElementById('tempmin');
-const tempmax = document.getElementById('tempmax');
-const humedad = document.getElementById('humedad');
-const presion = document.getElementById('presion');
-const estado = document.getElementById('estado');
-const icon = document.getElementById('icon');
 
-let grados = [];
-let horas = [];
+export let grados = []; //Inicia vacio para poder reasignar
+export let horas = []; //Inicia vacio para poder reasignar
+export let lat;
+export let lon;
+export let response;
+let respuestaDias;
+let dias = [];
+let temDiaria = [];
 
-async function clima(){
-    
+async function clima() {
+
     //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
-    let buscar = document.getElementById('buscar').value; 
+    let buscar = document.getElementById('buscar').value;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${buscar}&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
-    let response = await axios.get(url)
-    response = response.data; 
-    console.log(response);
-    let lat = response.coord.lat //Capturo la latitud que se utilizara en la segunda consulta
-    let lon = response.coord.lon //Capturo la longitud que se utilizara en la segunda consulta
-    
+    response = await axios.get(url)
+    response = response.data;
+    /* console.log(response); */
+    lat = response.coord.lat //Capturo la latitud que se utilizara en la segunda consulta
+    lon = response.coord.lon //Capturo la longitud que se utilizara en la segunda consulta    
 
-    let map = L.map('map').setView([`${lat}`, `${lon}`], 13); //Crea una instancia de un objeto de mapa dado el ID DOM de un elemento <div>
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { //Se utiliza para cargar y mostrar capas de mosaicos en el mapa.
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    
-    L.marker([`${lat}`, `${lon}`]).addTo(map)
-        .bindPopup(`Temperatura actual: ${Math.trunc(response.main.temp)}°C </br>
-        Condicion actual: ${response.weather[0].description}`)
-        .openPopup();
 
-        //map.remove(); 
+    //Realizo la segunda consulta donde obtengo los datos que se utilizan en el gráfico
     let url2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=8&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
-    let respuesta = await axios.get(url2)    
+    let respuesta = await axios.get(url2)
     respuesta = respuesta.data;
-    console.log(respuesta);
-    let info = respuesta.list;
+    
+    let info = respuesta.list; //Creo la variable info y la igualo a respuesta.list donde se encuentran los grados y las horas 
 
     let grados_api = info.map((grado) => Math.trunc(grado.main.temp)) //Obtengo temperatura    
     grados = grados_api //Igualo la variable grados a los valores obtenidos de la api
-    
-    let horas_api = info.map((fech) => obtenerHora(fech.dt_txt)) //Obtengo Horas 
-    console.log("Fechas: ",horas_api );
-    horas = horas_api //Igualo la variable horas a los valores obtenidos de la api
-    console.log("Grados: ",grados );
-    console.log("Fechas: ",horas );
-    
-//Principio del Gráfico
-    const data = {
-        labels: horas,
-         datasets: [{
-            label: 'Temperatura próximas 8 Horas',
-            data: grados,
-            fill: false,
-            backgroundColor:'rgba(255, 0, 0, 0.3)',
-            borderColor: 'rgb(255,0,0,1)',  //'rgb(75, 192, 192)'
-            tension: 0.4,
-            borderWidth: 1,
-        }]
-    };
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-      }; 
 
-      const myChart = new Chart(        
-        document.getElementById('myChart'),
-        config,        
-      );    
-//Fin del gráfico 
+    let horas_api = info.map((fech) => obtenerHora(fech.dt_txt)) //Obtengo Horas     
+    horas = horas_api //Igualo la variable horas a los valores obtenidos de la api
+
+    let urlDias = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
+    respuestaDias = await axios.get(urlDias)
+    respuestaDias = respuestaDias.data
+    respuestaDias = respuestaDias.daily
+    console.log(respuestaDias);
+
+    dias = respuestaDias.map((dia) => dia.dt)
+    console.log(dias);
+
+    temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
+    console.log(temDiaria);
     
     pintaDatos(response) //Pinto datos obtenidos de la ap
-}
-
-function pintaDatos(response){
-    /* let {temp, temp_max, temp_min } = response.main 
-       console.log(temp);
-    */  
-    //Hora Unix a Hora UTC
-    let unixTimestamp = response.dt
-    let date = new Date(unixTimestamp*1000);
-    fecha.textContent = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
-
-    //Se obtiene nombre de ciudad
-    city.textContent = `${response.name}`
-    //Obtencion temperatura
-    let tempRedondeada = response.main.temp
-    temperatura.textContent = `${tempRedondeada}°C`
-
-    let tempminima = response.main.temp_min
-    tempmin.textContent = `Mín.: ${tempminima} °C`
-    
-    let tempmaxima = response.main.temp_max
-    tempmax.textContent = `Máx.: ${tempmaxima} °C`
-
-    let humedadporc = Math.trunc(response.main.humidity)
-    humedad.textContent = `Humedad: ${humedadporc} %`
-
-    let presionatm = Math.trunc(response.main.pressure)
-    presion.textContent = `Presión atm: ${presionatm} hPa`
-
-    estado.textContent = `${response.weather[0].description}`
-
-    icon.src= `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png`
-
-    console.log(response.weather[0].description)
+    pintaMapa();
+    pintaGrafico();
+    nextDays();
 
 }
 
-function obtenerHora(fecha){ //Funcion que me formatea la hora 
+function obtenerHora(fecha) { //Funcion que me formatea la hora 
     let hora_corregida = fecha;
     hora_corregida = hora_corregida.split(' ');
     hora_corregida = hora_corregida[1];
@@ -122,4 +66,60 @@ function obtenerHora(fecha){ //Funcion que me formatea la hora
     return hora_corregida
 }
 
+
+function nextDays(){
+        let cards = document.getElementById('cards');
+        let html = '';
+
+        for(let i = 1; i < respuestaDias.length - 1; i++){
+            let dayService = new Date(respuestaDias[i].dt * 1000);
+
+            let day = dayService.getDate();
+            let month = 
+                dayService.getMonth() == 0 ? "Enero" : 
+                dayService.getMonth() == 1 ? "Febrero" : 
+                dayService.getMonth() == 2 ? "Marzo" :
+                dayService.getMonth() == 3 ? "Abril" :
+                dayService.getMonth() == 4 ? "Mayo" :
+                dayService.getMonth() == 5 ? "Junio" :
+                dayService.getMonth() == 6 ? "Julio" :
+                dayService.getMonth() == 7 ? "Agosto" :
+                dayService.getMonth() == 8 ? "Septiembre" :
+                dayService.getMonth() == 9 ? "Octubre" :
+                dayService.getMonth() == 10 ? "Noviembre" :
+                dayService.getMonth() == 11 ? "Diciembre" : "";
+            let year = dayService.getFullYear();
+
+            let dayOfWeek = 
+                dayService.getDay() == 0 ? "Domingo" : 
+                dayService.getDay() == 1 ? "Lunes" : 
+                dayService.getDay() == 2 ? "Martes" :
+                dayService.getDay() == 3 ? "Miércoles" :
+                dayService.getDay() == 4 ? "Jueves" :
+                dayService.getDay() == 5 ? "Viernes" :
+                dayService.getDay() == 6 ? "Sábado" : "";
+            
+            /* let date = day + '/' + month + '/' + year; */
+            
+            html = html + `
+            <div class="card d-flex mt-5 gap-5">
+            <div class="card-header">
+            <h5 class="card-text">${ dayOfWeek } ${ day } de ${ month }</h5>
+            </div>
+            <div class="card-body">
+            <h2 class="card__title">${ Math.round(respuestaDias[i].temp.day) } °C</h2>
+            <p class="card-text" >Máx.: ${ Math.round(respuestaDias[i].temp.max) } °C</p> <br>
+            <p class="card-text" >Mín.: ${ Math.round(respuestaDias[i].temp.min) }  °C</p>
+            <img src="http://openweathermap.org/img/wn/${respuestaDias[i].weather[0].icon }@2x.png" alt="">
+            </div>
+            </div>
+            </div>          
+            `;
+        }
+        cards.innerHTML = html;
+        console.log(respuestaDias);
+
+}
+
 boton.addEventListener('click', clima)
+
