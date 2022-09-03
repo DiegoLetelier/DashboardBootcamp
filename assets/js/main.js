@@ -21,7 +21,7 @@ async function clima() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${buscar}&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     response = await axios.get(url)
     response = response.data;
-    /* console.log(response); */
+    
     lat = response.coord.lat //Capturo la latitud que se utilizara en la segunda consulta
     lon = response.coord.lon //Capturo la longitud que se utilizara en la segunda consulta    
 
@@ -42,15 +42,12 @@ async function clima() {
     let urlDias = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     respuestaDias = await axios.get(urlDias)
     respuestaDias = respuestaDias.data
-    respuestaDias = respuestaDias.daily
-    console.log(respuestaDias);
+    respuestaDias = respuestaDias.daily    
 
-    dias = respuestaDias.map((dia) => dia.dt)
-    console.log(dias);
+    dias = respuestaDias.map((dia) => dia.dt)   
 
     temDiaria = respuestaDias.map((diaria) => Math.trunc(diaria.temp.day))
-    console.log(temDiaria);
-    
+        
     pintaDatos(response) //Pinto datos obtenidos de la ap
     pintaMapa();
     pintaGrafico();
