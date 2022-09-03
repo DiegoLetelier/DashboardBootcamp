@@ -2,11 +2,7 @@
 import pintaDatos from './pintaDatos.js'
 import pintaMapa from './mapa.js';
 import pintaGrafico from './grafico.js'
-<<<<<<< HEAD
-import nextDays from './cards.js';
-=======
 import nextDays from './tarjetas.js'
->>>>>>> origin/sebastian
 const boton = document.getElementById('boton');
 
 export let grados = []; //Inicia vacio para poder reasignar
@@ -15,14 +11,9 @@ export let lat;
 export let lon;
 export let response;
 export let respuestaDias;
-<<<<<<< HEAD
-=======
 let dias = [];
 let temDiaria = [];
->>>>>>> origin/sebastian
 
-let temDiaria = [];
-let dias = [];
 async function clima() {
 
     //Realizo primera consulta donde obtengo los datos que mostrare en el dom
@@ -76,10 +67,4 @@ function obtenerHora(fecha) { //Funcion que me formatea la hora
     return hora_corregida
 }
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> origin/sebastian
 boton.addEventListener('click', clima)

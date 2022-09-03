@@ -5,10 +5,12 @@ export default function pintaGrafico() {
     labels: horas,
     datasets: [{
       label: 'Temperatura próximas 8 Horas',
-      data: grados,
-      fill: false,
-      borderColor: 'rgb(255,0,0)',  //'rgb(75, 192, 192)'
-      tension: 0.1
+            data: grados,
+            fill: true,
+            backgroundColor:'rgba(255, 0, 0, 0.5)',
+            borderColor: 'rgb(255,0,0,1)',  //'rgb(75, 192, 192)'
+            tension: 0.4,
+            borderWidth: 1,
     }]
   };
   const config = {

@@ -1,227 +1,43 @@
-<<<<<<< HEAD
-/* #map { 
-    width: 400px;
-    height: 400px; 
-}
- */
-
-
- #map {
-    width: 100%;
-    height: 580px;
-    box-shadow: 5px 5px 5px #888;
- }
- 
- #fecha {
-    text-align: center;
-    font-size: 1.5em;
- }
- 
- 
- #icon {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
- }
- 
- #estado {
-    text-align: center;
-    font-size: 2em;
- }
- 
- #ciudad {
-    text-align: center;
-    font-size: 3.5em;
- }
- 
- #col {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
- }
- 
- #temperatura {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin: 0;
-    text-align: center;
-    font-size: 5em;
- }
- 
- .catalogo {
-    color: #fff;
-    text-align: center;
- }
- 
- .lista-item a {
-    color: #fff
- }
- 
- .lista-item a:hover {
-    color: green;
- }
-
-#map {
-   width: 100%;
-   height: 580px;
-   box-shadow: 5px 5px 5px #888;
-}
-
-#fecha {
-   text-align: center;
-   font-size: 1.5em;
-}
-
-#card-body {
-   text-align: center;
-}
-
-#icon {
-   margin-left: auto;
-   margin-right: auto;
-   display: block;
-}
-
-#estado {
-   text-align: center;
-   font-size: 2em;
-}
-
-#ciudad {
-   text-align: center;
-   font-size: 3.5em;
-}
-
-#col {
-   margin-left: auto;
-   margin-right: auto;
-   display: block;
-}
-
-#temperatura {
-   margin-left: auto;
-   margin-right: auto;
-   display: block;
-   margin: 0;
-   text-align: center;
-   font-size: 5em;
-}
-
-.catalogo {
-   color: #fff;
-   text-align: center;
-}
-
-.lista-item a {
-   color: #fff
-}
-
-.lista-item a:hover {
-   color: green;
-}
-
-=======
->>>>>>> origin/sebastian
 body {
-  background-color: white;
-  color: black;
-}
-
-#ciudad{
-  font-size: 3em;
-}
-
-#map { 
-  width: 100%;
-  height: 560px;
-  border-radius: 10px;
-   } 
-
-.card {
-<<<<<<< HEAD
-    background-color: rgb(146, 206, 228); 
-    border: #333333 solid 1px;
-    width: 100%;
-    padding: 4px;
-    
-  }
-
-.report {
-    height: 33.3%;
-  }
-
-  #temperatura{
-    font-size: 3rem;
-  }
-  #estado{
-    text-align: center;
-    font-size: 2em;
-  }
-
-  #datos{
-    margin: 0;
-    padding: 0;
-  }
-  #fecha{
-    font-size: 1.2em;
-  }
-  
-  canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 90px;
-    display: block;
-    width: 800px;
-  }
-
-   /* paleta de colores */
-
-   .customNavbar {
-      background-color: #D2D79F;
-      color: #483838;
-      position : auto;
-      align-items: auto;
-   }
-
-   .menuLinks {
-      color : #483838;
-   }
-
-   .customFooter {
-      padding-top: 10px;
-      width: 100%;
-      position: absolute;
-      margin-top: 650px;
-   }
-  
+   background-color: white;
+   color: black;
+ }
+ 
+ #ciudad{
+   font-size: 3em;
+ }
+ 
+ #map { 
+   width: 100%;
+   height: 560px;
+   border-radius: 10px;
+    } 
+ 
+ .card {
+   background-color: rgb(146, 206, 228); 
+   border: #333333 solid 1px;  
+   width: 100%;
+   padding: 4px;
    
-=======
-  background-color: rgb(146, 206, 228); 
-  border: #333333 solid 1px;  
-  width: 100%;
-  padding: 4px;
+ }
+ 
+ canvas {
+   padding-left: 0;
+   padding-right: 0;
+   margin-top: 90px;
+   display: block;
+   width: 800px;
+ }
+ 
+   .catalogo {
+     color: #fff;
+     text-align: center;
+  }
   
-}
-
-canvas {
-  padding-left: 0;
-  padding-right: 0;
-  margin-top: 90px;
-  display: block;
-  width: 800px;
-}
-
-  .catalogo {
-    color: #fff;
-    text-align: center;
- }
- 
- .lista-item a {
-    color: #fff
- }
- 
- .lista-item a:hover {
-    color: green;
- }
->>>>>>> origin/sebastian
+  .lista-item a {
+     color: #fff
+  }
+  
+  .lista-item a:hover {
+     color: green;
+  }
