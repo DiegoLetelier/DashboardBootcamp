@@ -1,7 +1,12 @@
+//Para subir
 import pintaDatos from './pintaDatos.js'
 import pintaMapa from './mapa.js';
 import pintaGrafico from './grafico.js'
+<<<<<<< HEAD
 import nextDays from './cards.js';
+=======
+import nextDays from './tarjetas.js'
+>>>>>>> origin/sebastian
 const boton = document.getElementById('boton');
 
 export let grados = []; //Inicia vacio para poder reasignar
@@ -10,12 +15,17 @@ export let lat;
 export let lon;
 export let response;
 export let respuestaDias;
+<<<<<<< HEAD
+=======
+let dias = [];
+let temDiaria = [];
+>>>>>>> origin/sebastian
 
 let temDiaria = [];
 let dias = [];
 async function clima() {
 
-    //Realizo primera consulta donde eobtengo los datos que mostrare en el dom
+    //Realizo primera consulta donde obtengo los datos que mostrare en el dom
     let buscar = document.getElementById('buscar').value;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${buscar}&units=metric&appid=616629f9acdc3b22b8b09553e632e5da&lang=es`
     response = await axios.get(url)
@@ -66,7 +76,10 @@ function obtenerHora(fecha) { //Funcion que me formatea la hora
     return hora_corregida
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/sebastian
 boton.addEventListener('click', clima)

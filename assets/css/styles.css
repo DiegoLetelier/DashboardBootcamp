@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* #map { 
     width: 400px;
     height: 400px; 
@@ -120,41 +121,25 @@
    color: green;
 }
 
+=======
+>>>>>>> origin/sebastian
 body {
-    background-color: white;
-    color: black;
-  }
-  
-main {
-    height: 100vh;
-    border-top: #CFBB6D solid 1px;
-  }
-.main-row {
-    height: 100%;
-  }
-
-#ciudad{
-    font-size: 3em;
+  background-color: white;
+  color: black;
 }
 
+#ciudad{
+  font-size: 3em;
+}
 
-#buscar {
-    background-color: white; 
-    border: #333333 solid 1px;
-    color: black;
-  }
-
-.search-column {
-    border-right: #333333 solid 1px;
-  }
-
-  #map { 
-    width: 100%;
-    height: 560px;
-    border-radius: 10px;
-     } 
+#map { 
+  width: 100%;
+  height: 560px;
+  border-radius: 10px;
+   } 
 
 .card {
+<<<<<<< HEAD
     background-color: rgb(146, 206, 228); 
     border: #333333 solid 1px;
     width: 100%;
@@ -211,3 +196,32 @@ main {
    }
   
    
+=======
+  background-color: rgb(146, 206, 228); 
+  border: #333333 solid 1px;  
+  width: 100%;
+  padding: 4px;
+  
+}
+
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 90px;
+  display: block;
+  width: 800px;
+}
+
+  .catalogo {
+    color: #fff;
+    text-align: center;
+ }
+ 
+ .lista-item a {
+    color: #fff
+ }
+ 
+ .lista-item a:hover {
+    color: green;
+ }
+>>>>>>> origin/sebastian
