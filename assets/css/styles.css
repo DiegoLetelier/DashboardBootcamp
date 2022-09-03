@@ -1,42 +1,15 @@
-/* #map { 
-    width: 400px;
-    height: 400px; 
-}
- */
 
-
-/*  #map {
-  width: 100%;
-  height: 580px;
-  box-shadow: 5px 5px 5px #888;
-} */
 
 body {
   background-color: white;
   color: black;
 }
 
-main {
-  height: 100vh;
-  border-top: #CFBB6D solid 1px;
-}
-.main-row {
-  height: 100%;
-}
 
 #ciudad{
   font-size: 3em;
 }
 
-#buscar {
-  background-color: white; 
-  border: #333333 solid 1px;
-  color: black;
-}
-
-.search-column {
-  border-right: #333333 solid 1px;
-}
 
 #map { 
   width: 100%;
@@ -46,8 +19,7 @@ main {
 
 .card {
   background-color: rgb(146, 206, 228); 
-  border: #333333 solid 1px;
-  
+  border: #333333 solid 1px;  
   width: 100%;
   padding: 4px;
   
@@ -57,21 +29,7 @@ main {
   height: 33.3%;
 }
 
-#temperatura{
-  font-size: 3rem;
-}
-#estado{
-  text-align: center;
-  font-size: 2em;
-}
 
-#datos{
-  margin: 0;
-  padding: 0;
-}
-#fecha{
-  font-size: 1.2em;
-}
 
 canvas {
   padding-left: 0;
@@ -82,7 +40,6 @@ canvas {
 }
 
  /* paleta de colores */
-
  .customNavbar {
     background-color: #D2D79F;
     color: #483838;
