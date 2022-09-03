@@ -1,15 +1,11 @@
-
-
 body {
   background-color: white;
   color: black;
 }
 
-
 #ciudad{
   font-size: 3em;
 }
-
 
 #map { 
   width: 100%;
@@ -25,12 +21,6 @@ body {
   
 }
 
-.report {
-  height: 33.3%;
-}
-
-
-
 canvas {
   padding-left: 0;
   padding-right: 0;
@@ -39,26 +29,7 @@ canvas {
   width: 800px;
 }
 
- /* paleta de colores */
- .customNavbar {
-    background-color: #D2D79F;
-    color: #483838;
-    position : auto;
-    align-items: auto;
- }
-
- .menuLinks {
-    color : #483838;
- }
-
- .customFooter {
-    padding-top: 10px;
-    width: 100%;
-    position: absolute;
-    margin-top: 650px;
- }
-
- .catalogo {
+  .catalogo {
     color: #fff;
     text-align: center;
  }
